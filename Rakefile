@@ -11,6 +11,8 @@ require 'rake/rdoctask'
 require 'rake/testtask'
 require 'spec/rake/spectask'
 
+#tmail, rumbster
+
 spec = Gem::Specification.new do |s|
   s.name = 'letterbox'
   s.version = '0.0.1'
@@ -47,7 +49,7 @@ end
 
 
 Spec::Rake::SpecTask.new(:spec) do |t|
-  t.spec_files = FileList['spec/*_spec.rb']
+  t.spec_files = FileList['spec/**/*_spec.rb']
 end
 
 

@@ -2,14 +2,13 @@ require 'rbconfig'
 
 class PublisherFactory
     
-  attr_reader :publishers
-    
-  def initialize
-    @publishers = []
+  def self.create_publishers
+    publishers = []
     os = Config::CONFIG['target_os'].downcase
-    @publishers << Notifier::GrowlNotifier.new if os =~ /(.*)darwin(.*)/
-    @publishers << Notifier::SnarlNotifier.new if os =~ /(.*)mswin(.*)/
-    @publishers << Notifier::SnarlNotifier.new if os =~ /(.*)cygwin(.*)/
-    @publishers << Notifier::MumblesNotifier.new if os =~ /(.*)linux(.*)/
+    publishers << Publisher::Growl.new if os =~ /(.*)darwin(.*)/
+    publishers << Publisher::Snarl.new if os =~ /(.*)mswin(.*)/
+    publishers << Publisher::Snarl.new if os =~ /(.*)cygwin(.*)/ 
+    publishers << Publisher::Mumbles.new if os =~ /(.*)linux(.*)/
+    publishers
   end
 end

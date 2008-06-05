@@ -1,7 +1,12 @@
-
+require 'rumbster'
 
 class Letterbox
-  def initialize port
-    
+  
+  attr_reader :rumbster
+  
+  def initialize port=21
+    @rumbster = Rumbster.new(port)
+    publishers = PublisherFactory.create_publishers
+    @rumbster.add_observer(Publisher::PublisherAdapter.new(*publishers))
   end
 end
