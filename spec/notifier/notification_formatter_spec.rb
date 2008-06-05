@@ -1,6 +1,6 @@
-require File.join(File.dirname(__FILE__), '..', '..', 'spec_helper')
+require File.join(File.dirname(__FILE__), '..', 'spec_helper')
 
-module Letterbox::Notifier
+module Notifier
   describe NotificationFormatter, 'formatting email' do
   
     before(:each) do

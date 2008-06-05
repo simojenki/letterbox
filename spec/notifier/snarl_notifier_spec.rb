@@ -1,7 +1,7 @@
-require File.join(File.dirname(__FILE__), '..', '..', 'spec_helper')
-require 'letterbox/notifier/notifier_shared'
+require File.join(File.dirname(__FILE__), '..', 'spec_helper')
+require 'notifier/notifier_shared'
 
-module Letterbox::Notifier
+module Notifier
 
   describe SnarlNotifier do
   

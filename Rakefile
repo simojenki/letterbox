@@ -9,6 +9,7 @@ require 'rake/clean'
 require 'rake/gempackagetask'
 require 'rake/rdoctask'
 require 'rake/testtask'
+require 'spec/rake/spectask'
 
 spec = Gem::Specification.new do |s|
   s.name = 'letterbox'
@@ -43,3 +44,10 @@ end
 Rake::TestTask.new do |t|
   t.test_files = FileList['test/**/*.rb']
 end
+
+
+Spec::Rake::SpecTask.new(:spec) do |t|
+  t.spec_files = FileList['spec/*_spec.rb']
+end
+
+
